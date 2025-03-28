@@ -19,4 +19,25 @@ export class HomePage {
   goToPrimeiro() {
     this.router.navigate(['/primeiro']);
   }
+
+
+      itens=[
+        {
+          id: 1,
+          name: '1fs',
+          description: 'descriptiontrduyfugkhjiyftdiffyujhhvyyu',
+        },
+        {
+          id: 2,
+          name: '2ved',
+          description: '7d6tfiyug',
+        },
+        {
+          id: 3,
+          name: '3ere',
+          description: 'aaaaaaaaaaaaaaaaa',
+        }
+      ]
+    
+  
 }

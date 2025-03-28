@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 
 @Component({
@@ -8,9 +8,10 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
   imports: [IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle],
 
 })
-export class SegundoComponent  implements OnInit {
 
+export class SegundoComponent  implements OnInit {
   constructor() { }
+  @Input("dados") itens!: any;
 
   ngOnInit() {}
 
