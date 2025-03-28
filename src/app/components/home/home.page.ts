@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';  
-import { SegundoComponent } from '../segundo/segundo.component'; 
+import { SegundoComponent } from '../segundo/segundo.component'; //aq eu to importando o segundo component, que é o que eu quero usar na home
 
 @Component({
   selector: 'app-home',
@@ -10,17 +10,17 @@ import { SegundoComponent } from '../segundo/segundo.component';
   standalone: true, 
   imports: [
     IonicModule,       
-    SegundoComponent   
+    SegundoComponent   //aq eu chamo o segundo componente pela variavel dali de cima
   ]
 })
 export class HomePage {
   constructor(private router: Router) {}
 
-  goToPrimeiro() {
+  goToPrimeiro() {//lembra q a gnt chamou essa funcao lá no home.page.html? ent, a unica coisa q ela ta fznd, é redirecionar
     this.router.navigate(['/primeiro']);
   }
 
-
+//e aqui a gente ta criando um array pra poder passar os dados pro segundo component, mas esses dados seriam do back, tlgd?
       itens=[
         {
           id: 1,

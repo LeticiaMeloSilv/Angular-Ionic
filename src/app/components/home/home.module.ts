@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
+//nao lembro de ter tocado aq tb, entao é padrao do angular tb
 @NgModule({
   imports: [
     CommonModule,

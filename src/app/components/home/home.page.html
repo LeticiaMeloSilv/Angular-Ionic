@@ -5,16 +5,16 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- vou comentar td pra entender dps -->
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Home </ion-title>
+      <ion-title size="large">Home </ion-title> <!-- aq a gnt ta definindo aq nome q fica no header, em outros casos, seria a logo ou sla -->
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <ion-button (click)="goToPrimeiro()">Ir para a Tela Primeiro</ion-button>
-    <app-segundo [dados]=itens></app-segundo>
+    <ion-button (click)="goToPrimeiro()">Ir para a Tela Primeiro</ion-button> <!-- mn, aq a gnt cria um botao q ta chamando uma funcao la do home.page.ts onde vai redireciona pra outra pagina-->
+    <app-segundo [dados]=itens></app-segundo><!-- e aq a gnt ta chamando um componente e passando dados pra ele via @input, mas cuidado, só faz assim quando sao poucos dados pra compartilhar -->
   </div>
 </ion-content>
