@@ -1,6 +1,8 @@
+import { Storage } from '@ionic/storage-angular';
+import { StorageService } from './../../service/storage/storage.service';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';  
-import { ObservableService } from '../../service/observable.service'; // Importando o serviço
+import { ObservableService } from '../../service/observable/observable.service'; // Importando o serviço
 import { BehaviorSubject, interval } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -18,7 +20,7 @@ export class PrimeiroPage {
   //aqui eu to criando uma variavel que vai receber os dados do observable service, e ela é do tipo Observable, pq o serviço ta retornando um observable
   //ou seja, quando eu for usar essa variavel, eu vou ter q usar o subscribe pra poder pegar os dados
 
-  constructor(private dataService: ObservableService, private router: Router) {// aq eu to injetando o serviço no construtor, pra poder usar ele
+  constructor(private dataService: ObservableService, private storageService: StorageService, private router: Router) {// aq eu to injetando o serviço no construtor, pra poder usar ele
     //aqui eu to chamando o serviço e pegando os dados dele, e to passando pra variavel dados$
     this.dadosaq$ = new BehaviorSubject<any>(this.dataService.dados$); // Inicializa o BehaviorSubject com os dados do serviço
   
@@ -35,6 +37,23 @@ export class PrimeiroPage {
       console.log(dados);  
       console.log(dados.source._value);  
     });//aq a gnt ta subscribando no observable, ou seja, toda vez que o valor do observable mudar, essa funcao vai ser chamada e vai imprimir os dados no console
-   this.router.navigate(['/home']);
+   
+    this.storageFunc()
+   
+    this.router.navigate(['/home']);
+
+   
+  }
+  storageFunc(){
+    this.storageService.saveData('teste', 'teste');
+    this.storageService.getData('teste').then((value) => {
+      if (value === null) {
+      console.warn('No data found for the key "teste".');
+      } else {
+      console.log(value); // Imprime o valor armazenado
+      }
+    }).catch((error) => {
+      console.error('Error retrieving data', error);
+    });
   }
 }
